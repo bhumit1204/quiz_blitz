@@ -68,6 +68,7 @@ export interface Team {
   name: string;
   ownerId: string;
   ownerEmail: string;
+  lastAcceptedInviteId?: string | null;
   members: TeamMember[];
   memberIds: string[];
   createdAt: any;

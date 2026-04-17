@@ -225,6 +225,7 @@ export const createTeam = async (
     name: name.trim(),
     ownerId,
     ownerEmail: ownerEmail.toLowerCase(),
+    lastAcceptedInviteId: null,
     members: [{ uid: ownerId, email: ownerEmail.toLowerCase(), role: "owner", joinedAt: serverTimestamp() }],
     memberIds: [ownerId],
     createdAt: serverTimestamp(),
@@ -329,6 +330,7 @@ export const acceptTeamInvite = async (
   batch.update(teamRef, {
     memberIds: arrayUnion(userId),
     members: arrayUnion({ uid: userId, email: userEmail.toLowerCase(), role: "member", joinedAt: new Date().toISOString() }),
+    lastAcceptedInviteId: inviteId,
     updatedAt: serverTimestamp(),
   });
   await batch.commit();
