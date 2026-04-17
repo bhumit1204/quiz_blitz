@@ -56,8 +56,9 @@ function AuthForm() {
   const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+    const normalizedEmail = email.trim().toLowerCase();
 
-    if (!email.trim()) {
+    if (!normalizedEmail) {
       setError("Email is required.");
       return;
     }
@@ -73,9 +74,9 @@ function AuthForm() {
     setIsSubmitting(true);
     try {
       if (mode === "signup") {
-        await signUp(email.trim(), password);
+        await signUp(normalizedEmail, password);
       } else {
-        await signIn(email.trim(), password);
+        await signIn(normalizedEmail, password);
       }
       router.replace("/dashboard");
     } catch (err: any) {
