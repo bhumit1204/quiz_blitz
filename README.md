@@ -4,6 +4,8 @@ QuizBlitz is a real-time multiplayer quiz platform with AI-generated questions, 
 
 Built with Next.js App Router, Firebase Authentication/Firestore, and a custom modern UI for host, player, and organizer workflows.
 
+Try the web app here: https://quiz-blitz-inky.vercel.app/
+
 ## Features
 
 ### Organizer and Access
